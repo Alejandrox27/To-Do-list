@@ -3,6 +3,10 @@ export default class ToDoClass{
         this.message = message;
     }
 
+    get getMessage(){
+        return this.message;
+    }
+
     addNewMessage(){
         const list = document.getElementById("toDoList");
         const template = document.getElementById("todotemplate");

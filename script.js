@@ -1,6 +1,15 @@
 import ToDo from "./ToDoClass.js";
 
-const toDoMessages = [];
+let toDoMessages = [];
+
+if (localStorage.getItem("ToDo")){
+    toDoMessages = JSON.parse(localStorage.getItem("ToDo"));
+
+    toDoMessages.forEach(element => {
+        const newMessage = new ToDo(element.message, element.id);
+        newMessage.addNewMessage();
+    });
+}
 
 document.getElementById("form").addEventListener("submit", (e) => {
     e.preventDefault();
@@ -12,7 +21,7 @@ document.getElementById("form").addEventListener("submit", (e) => {
     newMessage.addNewMessage();
 
     const messageObj = {
-        id: `${Date.now()}`,
+        id: newMessage.getId,
         message: newMessage.getMessage
     };
 

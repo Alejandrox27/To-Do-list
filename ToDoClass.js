@@ -1,10 +1,16 @@
 export default class ToDoClass{
-    constructor(message){
+    #id = `${Date.now()}`
+    constructor(message, id= this.#id){
+        this.#id = id
         this.message = message;
     }
 
     get getMessage(){
         return this.message;
+    }
+
+    get getId(){
+        return this.#id;
     }
 
     addNewMessage(){
@@ -14,9 +20,8 @@ export default class ToDoClass{
 
         clone.querySelector("p").textContent = this.message;
         const button = clone.querySelector("button");
-        console.log()
-        
         button.addEventListener("click", this.removeMessage, false);
+        button.dataset.id = this.#id;
 
         list.appendChild(clone);
     }

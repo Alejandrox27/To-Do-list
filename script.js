@@ -1,5 +1,8 @@
 import ToDo from "./ToDoClass.js";
 
-const list = document.getElementById("toDoList");
-const template = document.getElementById("todotemplate");
-const addButton = document.getElementById("add");
+document.getElementById("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const newMessage = new ToDo("Hola mundo");
+    newMessage.addNewMessage()
+}, false)

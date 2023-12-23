@@ -20,16 +20,8 @@ export default class ToDoClass{
 
         clone.querySelector("p").textContent = this.message;
         const button = clone.querySelector("button");
-        button.addEventListener("click", this.removeMessage, false);
         button.dataset.id = this.#id;
 
         list.appendChild(clone);
-    }
-
-    removeMessage(e){
-        const parent = e.target.parentNode.parentNode.parentNode;
-        const child = e.target.parentNode.parentNode;
-
-        parent.removeChild(child);
     }
 }

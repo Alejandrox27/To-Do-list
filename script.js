@@ -2,6 +2,12 @@ import ToDo from "./ToDoClass.js";
 
 let toDoMessages = [];
 
+document.addEventListener("click", (e) => {
+    if (e.target.classList[1] === "btn-danger"){
+        removeMessage(e);
+    }
+}, false);
+
 if (localStorage.getItem("ToDo")){
     toDoMessages = JSON.parse(localStorage.getItem("ToDo"));
 
@@ -30,3 +36,19 @@ document.getElementById("form").addEventListener("submit", (e) => {
     localStorage.setItem("ToDo" ,JSON.stringify(toDoMessages));
 
 }, false)
+
+const removeMessage = (e) => {
+    const parent = e.target.parentNode.parentNode.parentNode;
+    const child = e.target.parentNode.parentNode;
+
+    const id = e.target.dataset.id;
+
+    parent.removeChild(child);
+
+    toDoMessages.forEach((item, index) => {
+        if (item.id === id){
+            toDoMessages.splice(index ,1);
+            localStorage.setItem("ToDo" ,JSON.stringify(toDoMessages));
+        }
+    })
+}

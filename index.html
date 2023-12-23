@@ -19,27 +19,29 @@
             placeholder="To Do"
             />
             
-            <button class="btn btn-outline-primary w-100" type="submit">Add</button>
+            <button class="btn btn-outline-primary w-100" type="submit" id="add">Add</button>
         </form>
 
         <div class="list">
 
             <ul id="toDoList" class="list-group">
 
-                <template id="todotemplate">
-                    <li class="my-2" style="list-style: none;">
-                        <article class="sub-container border rounded p-3 bg-secondary d-flex justify-content-between">
-                            <p class="fs-5 mb-0 text-white">To Do</p>
-                            <button class="btn btn-danger">Delete</button>
-                        </article>
-                    </li>
-                </template>
+                <!--template todo-->
 
             </ul>
 
         </div>
     </main>
 
-    <script src="./script.js"></script>
+    <template id="todotemplate">
+        <li class="my-2" style="list-style: none;">
+            <article class="sub-container border rounded p-3 bg-secondary d-flex justify-content-between">
+                <p class="fs-5 mb-0 text-white">To Do</p>
+                <button class="btn btn-danger">Delete</button>
+            </article>
+        </li>
+    </template>
+
+    <script src="./script.js" type="module"></script>
 </body>
 </html>

@@ -23,6 +23,15 @@ document.getElementById("form").addEventListener("submit", (e) => {
     const data = new FormData(form);
     const [message] = [...data.values()];
 
+    if (!message.trim()){
+        Swal.fire({
+            title: "Set a To Do",
+            text: "Please insert a To Do message to continue",
+            icon: "warning"
+          });
+          return;
+    }
+
     const newMessage = new ToDo(message);
     newMessage.addNewMessage();
 
